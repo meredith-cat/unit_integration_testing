@@ -44,11 +44,27 @@ describe('calculator', function () {
   calculator.numberClick(1)
   calculator.numberClick(2)
   calculator.numberClick(3)
-  assert.equal(calculator.runningTotal, 123)  
+  assert.equal(calculator.runningTotal, 123)
   });
 
   // calculator.operatorClick() - chain multiple operations together
-  // calculator.clearClick() - clear the running total without affecting the calculation
+  it('should chain multiple operations together', function(){
+    calculator.numberClick(1)
+    calculator.operatorClick("+")
+    calculator.numberClick(6)
+    calculator.operatorClick("-")
+    assert.equal(calculator.runningTotal, 7)
+  })
 
+  // calculator.clearClick() - clear the running total without affecting the calculation
+it('should clear the running total without affecting the calculation', function(){
+  calculator.numberClick(1)
+  calculator.operatorClick("+")
+  calculator.numberClick(6)
+  calculator.clearClick()
+  calculator.numberClick(9)
+  calculator.operatorClick("=")
+  assert.equal(calculator.runningTotal, 10)
+})
 
 });
