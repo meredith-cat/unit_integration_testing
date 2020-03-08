@@ -18,7 +18,7 @@ Calculator.prototype.multiply = function(number){
 }
 
 Calculator.prototype.divide = function(number){
-  this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
 }
 
 Calculator.prototype.numberClick = function(number){
